@@ -18,7 +18,7 @@ while read package; do
     pip install "$package"
 done < requirements.txt
 
-pkg install py312-numpy py312-cryptography py312-librosa py312-opencv-python-headless py312-pytorch-lightning py312-scipy py312-pytorch py312-samplerate py312-onnx py312-onnxruntime
+pkg install py312-numpy py312-cryptography py312-librosa py312-opencv-python-headless py312-pytorch-lightning py312-scipy py312-pytorch py312-samplerate py312-onnx py312-onnxruntime py312-pyglet
 # just in case
 pkg install math/py-statsmodels devel/py-xarray
 

@@ -14,7 +14,6 @@ omegaconf==2.4.0
 Pillow==13.0.0
 psutil==7.2.2
 pydub==0.25.1
-pyglet==2.1.19
 pyperclip==1.11.0
 pyrubberband==0.4.0
 PyYAML==6.0.3
