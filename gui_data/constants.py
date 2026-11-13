@@ -862,6 +862,10 @@ elif OPERATING_SYSTEM=="Linux":
    LICENSE_OS_SPECIFIC_TEXT = '• This application is intended for those running Linux Ubuntu 18.04+.\n' +\
                               '• Application functionality for systems running other Linux platforms is not guaranteed.\n' +\
                               '• Application functionality for older or budget systems is not guaranteed.\n\n'
+elif OPERATING_SYSTEM=="FreeBSD":
+   LICENSE_OS_SPECIFIC_TEXT = '• This application is intended for those running FreeBSD 15+.\n' +\
+                              '• Application functionality for systems running other FreeBSD versions or FreeBSD-derived OSes are not guaranteed.\n' +\
+                              '• Application functionality for older or budget systems is not guaranteed.\n\n'
 elif OPERATING_SYSTEM=="Windows":
    LICENSE_OS_SPECIFIC_TEXT = '• This application is intended for those running Windows 10 or higher.\n' +\
                               '• Application functionality for systems running Windows 7 or lower is not guaranteed.\n' +\
