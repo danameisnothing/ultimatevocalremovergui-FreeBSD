@@ -93,7 +93,7 @@ def get_execution_time(function, name):
 
 PREVIOUS_PATCH_WIN = 'UVR_Patch_10_6_23_4_27'
 
-is_dnd_compatible = True
+is_dnd_compatible = True if not OPERATING_SYSTEM=="FreeBSD" else False
 banner_placement = -2
 
 if OPERATING_SYSTEM=="Darwin":
