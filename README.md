@@ -1,3 +1,6 @@
+- **DEVELOPMENT UPDATE - October 6th, 2026:**
+    - Please see the following issue for the latest UVR development update! - [Issue 2399](https://github.com/Anjok07/ultimatevocalremovergui/issues/2399)
+
 # Ultimate Vocal Remover GUI v5.6
 <img src="https://raw.githubusercontent.com/Anjok07/ultimatevocalremovergui/master/gui_data/img/UVR_v5.6.png?raw=true" />
 
@@ -30,8 +33,8 @@ These bundles contain the UVR interface, Python, PyTorch, and other dependencies
 - Download the UVR installer for Windows via the link below:
     - [Main Download Link](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/UVR_v5.6.0_setup.exe)
     - [Main Download Link mirror](https://www.mediafire.com/file_premium/jiatpgp0ljou52p/UVR_v5.6.0_setup.exe/file)
-- If you use an **AMD Radeon or Intel Arc graphics card**, you can try the OpenCL version:
-    - [OpenCL Version - Main Download Link](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/UVR_v5.6.0_setup_opencl.exe)
+- If you use an **AMD Radeon or Intel Arc graphics card**, you can try the DirectML version:
+    - [DirectML Version - Main Download Link](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/UVR_1_15_25_22_30_BETA_full.exe)
 - Update Package instructions for those who have UVR already installed:
     - If you already have UVR installed you can install this package over it or download it straight from the application or [click here for the patch](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/UVR_Patch_10_6_23_4_27.exe).
 
@@ -155,6 +158,18 @@ This process has been tested on a MacBook Pro 2021 (using M1) and a MacBook Air 
 
 **These installation instructions are for Debian & Arch-based Linux systems.**
 
+**These installation instructions are for Debian & Arch-based Linux systems.**
+
+---
+
+#### **Step 1: Download the Repository**
+- Download and save this repository from [GitHub](https://github.com/Anjok07/ultimatevocalremovergui/archive/refs/heads/master.zip).
+- Extract the downloaded file to a directory of your choice.
+
+---
+
+#### **Step 2: Install Dependencies**
+Use the following commands based on your system type:
 ---
 
 #### **Step 1: Download the Repository**
@@ -232,7 +247,7 @@ If you encounter issues, refer to the [GitHub Issues](https://github.com/Anjok07
 </details>
 
 ### Other Application Notes
-- Nvidia RTX 1060 6GB is the minimum requirement for GPU conversions.
+- Nvidia GTX 1060 6GB is the minimum requirement for GPU conversions.
 - Nvidia GPUs with at least 8GBs of V-RAM are recommended.
 - AMD Radeon GPU supported is limited at this time.
    - There is currently a working branch for AMD GPU users [here](https://github.com/Anjok07/ultimatevocalremovergui/tree/v5.6-amd-gpu)

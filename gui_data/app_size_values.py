@@ -132,7 +132,8 @@ class ImagePath():
         if size is not None:
             size = (int(size[0]), int(size[1]))
             if keep_aspect:
-                img = img.resize((size[0], int(size[0] * ratio)), Image.ANTIALIAS)
+                # https://stackoverflow.com/a/76616129
+                img = img.resize((size[0], int(size[0] * ratio)), Image.LANCZOS)
             else:
                 img = img.resize(size, Image.ANTIALIAS)
                 
@@ -166,7 +167,7 @@ if OPERATING_SYSTEM=="Darwin":
    SET_MENUS_CHECK_WIDTH = 12
    COMBO_WIDTH = 14
    SET_VOC_SPLIT_CHECK_WIDTH = 21
-elif OPERATING_SYSTEM=="Linux":
+elif OPERATING_SYSTEM=="Linux" or OPERATING_SYSTEM=="FreeBSD":
    HELP_HINT_CHECKBOX_WIDTH = 15
    MDX_CHECKBOXS_WIDTH = 16
    VR_CHECKBOXS_WIDTH = 16
@@ -354,7 +355,7 @@ LABEL_WIDTH = -38
 ENTRY_WIDTH = 179.5
 ENTRY_OPEN_BUTT_WIDTH = -185
 ENTRY_OPEN_BUTT_X_OFF = 405
-UPDATE_LABEL_WIDTH = 35 if OPERATING_SYSTEM == 'Linux' else 32
+UPDATE_LABEL_WIDTH = 35 if OPERATING_SYSTEM == 'Linux' or OPERATING_SYSTEM=='FreeBSD' else 32
 
 HEIGHT_CONSOLE_FRAME_1080P = COMMAND_HEIGHT + HO_S
 LOW_MENU_Y = LOW_MENU_Y_1, LOW_MENU_Y_2

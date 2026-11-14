@@ -96,7 +96,7 @@ def get_execution_time(function, name):
 
 PREVIOUS_PATCH_WIN = 'UVR_Patch_10_6_23_4_27'
 
-is_dnd_compatible = True
+is_dnd_compatible = True if not OPERATING_SYSTEM=="FreeBSD" else False
 banner_placement = -2
 
 if OPERATING_SYSTEM=="Darwin":
@@ -108,7 +108,7 @@ if OPERATING_SYSTEM=="Darwin":
     is_macos = True
     right_click_button = '<Button-2>'
     application_extension = ".dmg"
-elif OPERATING_SYSTEM=="Linux":
+elif OPERATING_SYSTEM=="Linux" or OPERATING_SYSTEM=="FreeBSD":
     OPEN_FILE_func = lambda input_string:subprocess.Popen(["xdg-open", input_string])
     dnd_path_check = LINUX_DND_CHECK
     current_patch = PATCH_LINUX
@@ -126,7 +126,7 @@ elif OPERATING_SYSTEM=="Windows":
     application_extension = ".exe"
 
 def right_click_release_linux(window, top_win=None):
-    if OPERATING_SYSTEM=="Linux":
+    if OPERATING_SYSTEM=="Linux" or OPERATING_SYSTEM=="FreeBSD":
         root.bind('<Button-1>', lambda e:window.destroy())
         if top_win:
             top_win.bind('<Button-1>', lambda e:window.destroy())
@@ -3357,7 +3357,7 @@ class MainWindow(TkinterDnD.Tk if is_dnd_compatible else tk.Tk):
 
         self.main_window_LABEL_SET(menu_view_inputs_Frame, SELECTED_INPUTS).grid(row=0,column=0,padx=0,pady=MENU_PADDING_1)
         tk.Label(menu_view_inputs_Frame, textvariable=input_length_var, font=(MAIN_FONT_NAME, f"{FONT_SIZE_1}"), foreground=FG_COLOR).grid(row=1, column=0, padx=0, pady=MENU_PADDING_1)
-        if not OPERATING_SYSTEM == "Linux":
+        if not OPERATING_SYSTEM == "Linux" and not OPERATING_SYSTEM=="FreeBSD":
             ttk.Button(menu_view_inputs_Frame, text=SELECT_INPUTS, command=lambda:input_options()).grid(row=2,column=0,padx=0,pady=MENU_PADDING_2)
         input_files_listbox_Option = tk.Listbox(menu_view_inputs_Frame, selectmode=tk.EXTENDED, activestyle='dotbox', font=(MAIN_FONT_NAME, f"{FONT_SIZE_1}"), background='#101414', exportselection=0, width=110, height=17, relief=tk.SOLID, borderwidth=0)
         input_files_listbox_vertical_scroll = ttk.Scrollbar(menu_view_inputs_Frame, orient=tk.VERTICAL)
@@ -5453,7 +5453,7 @@ class MainWindow(TkinterDnD.Tk if is_dnd_compatible else tk.Tk):
 
             stem_input_save.destroy()
             
-            parent_window.attributes('-topmost', 'true') if OPERATING_SYSTEM == "Linux" else None
+            parent_window.attributes('-topmost', 'true') if OPERATING_SYSTEM == "Linux" or OPERATING_SYSTEM=="FreeBSD" else None
             parent_window.grab_set()
             root.wait_window(parent_window)
         
@@ -5628,7 +5628,7 @@ class MainWindow(TkinterDnD.Tk if is_dnd_compatible else tk.Tk):
 
                 if OPERATING_SYSTEM=="Darwin":
                     self.lastest_version = self.online_data["current_version_mac"]
-                elif OPERATING_SYSTEM=="Linux":
+                elif OPERATING_SYSTEM=="Linux" or OPERATING_SYSTEM=="FreeBSD":
                     self.lastest_version = self.online_data["current_version_linux"]
                 else:
                     self.lastest_version = self.online_data["current_version"]
@@ -5652,7 +5652,7 @@ class MainWindow(TkinterDnD.Tk if is_dnd_compatible else tk.Tk):
                             self.download_update_path_var.set(os.path.join(BASE_PATH, f'{self.lastest_version}{application_extension}'))
                         elif OPERATING_SYSTEM == "Darwin":
                             self.download_update_link_var.set(UPDATE_MAC_ARM_REPO if SYSTEM_PROC == ARM or ARM in SYSTEM_ARCH else UPDATE_MAC_X86_64_REPO)
-                        elif OPERATING_SYSTEM == "Linux":
+                        elif OPERATING_SYSTEM == "Linux" or OPERATING_SYSTEM=="FreeBSD":
                             self.download_update_link_var.set(UPDATE_LINUX_REPO)
                     
                     if not user_refresh:
