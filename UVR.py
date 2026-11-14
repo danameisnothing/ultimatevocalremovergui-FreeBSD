@@ -62,7 +62,7 @@ from os.path import expanduser
 # import faulthandler
 # faulthandler.enable()
 
-if not is_macos:
+if not is_macos and OPERATING_SYSTEM != "FreeBSD":
     import torch_directml # type:ignore
 
 is_choose_arch = cuda_available and directml_available

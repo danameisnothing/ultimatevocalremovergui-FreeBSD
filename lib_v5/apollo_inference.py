@@ -11,7 +11,7 @@ from separate import (get_gpu_info, clear_gpu_cache,
 import warnings
 warnings.filterwarnings("ignore")
 
-if not is_macos:
+if not is_macos and OPERATING_SYSTEM != "FreeBSD":
     import torch_directml # type:ignore
 
 DIRECTML_DEVICE, directml_available = get_gpu_info()
